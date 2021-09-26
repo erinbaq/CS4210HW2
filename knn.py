@@ -37,7 +37,11 @@ for i, instance in enumerate(db):
     for x in db:
         if x != tInstance:
             test = x[::2]
-            X.append(test)
+            tempFloat = [float(j) for j in test]
+            
+            X.append(tempFloat)
+
+           
     
 
     #transform the original training classes to numbers and add to the vector Y removing the instance that will be used for testing in this iteration. For instance, Y = [1, 2, ,...]. Convert each
@@ -47,9 +51,9 @@ for i, instance in enumerate(db):
     for y in db:
         if y!= db[i]:
             if y[2]=="+":
-                Y.append(1)
+                Y.append(float(1))
             elif y[2]=="-":
-                Y.append(2)
+                Y.append(float(2))
         elif y==db[i]:
             if y[2]=="+":
                 tClass=1
